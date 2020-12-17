@@ -9,36 +9,26 @@ class ProjSisPerfumesFramePrincipal( ProjSisPerfumes.FramePrincipal ):
 		ProjSisPerfumes.FramePrincipal.__init__( self, parent )
 
 	# Handlers for FramePrincipal events.
-	def abrirMarcas( self, event ):
-		# TODO: Implement abrirMarcas
-		pass
+	def abrirFrameMarcas( self, event ):
+		event.Skip()
 
-	def abrirEssencias( self, event ):
-		# TODO: Implement abrirEssencias
-		pass
+	def abrirFrameEssencias( self, event ):
+		event.Skip()
 
-	def abrirFixacoes( self, event ):
-		# TODO: Implement abrirFixacoes
-		pass
+	def abrirFrameFixacoes( self, event ):
+		event.Skip()
 
-	def abrirVolumes( self, event ):
-		# TODO: Implement abrirVolumes
-		pass
+	def abrirFrameVolumes( self, event ):
+		event.Skip()
 
-	def abrirPerfumes( self, event ):
-		# TODO: Implement abrirPerfumes
-		pass
+	def abrirFrammePerfumes( self, event ):
+		event.Skip()
 
-	def abrirPerfumesEssencia( self, event ):
-		# TODO: Implement abrirPerfumesEssencia
-		pass
+	def abrirFramePerfumesEssencia( self, event ):
+		event.Skip()
 
 	def abrirSobre( self, event ):
-		# TODO: Implement abrirSobre
-		pass
+		event.Skip()
 
 	def abrirSair( self, event ):
-		# TODO: Implement abrirSair
-		pass
-
-
+		event.Skip()
