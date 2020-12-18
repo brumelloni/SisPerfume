@@ -27,13 +27,13 @@ class FramePrincipal ( wx.Frame ):
 		self.menuMarcas = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Marcas", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu1.Append( self.menuMarcas )
 
-		self.menuEssencias = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Essencias", wx.EmptyString, wx.ITEM_NORMAL )
+		self.menuEssencias = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Essências", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu1.Append( self.menuEssencias )
 
 		self.menuFixacoes = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Fixações", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu1.Append( self.menuFixacoes )
 
-		self.menuVolume = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Volumes", wx.EmptyString, wx.ITEM_NORMAL )
+		self.menuVolume = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Volume", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu1.Append( self.menuVolume )
 
 		self.m_menubar1.Append( self.m_menu1, u"Cadastros Básicos" )
@@ -42,7 +42,7 @@ class FramePrincipal ( wx.Frame ):
 		self.menuPerfumes = wx.MenuItem( self.m_menu2, wx.ID_ANY, u"Perfume", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu2.Append( self.menuPerfumes )
 
-		self.menuPerfumesEssencia = wx.MenuItem( self.m_menu2, wx.ID_ANY, u"Essencia", wx.EmptyString, wx.ITEM_NORMAL )
+		self.menuPerfumesEssencia = wx.MenuItem( self.m_menu2, wx.ID_ANY, u"Essência", wx.EmptyString, wx.ITEM_NORMAL )
 		self.m_menu2.Append( self.menuPerfumesEssencia )
 
 		self.m_menubar1.Append( self.m_menu2, u"Perfumes" )
@@ -65,11 +65,11 @@ class FramePrincipal ( wx.Frame ):
 		self.Bind( wx.EVT_MENU, self.abrirMarcas, id = self.menuMarcas.GetId() )
 		self.Bind( wx.EVT_MENU, self.abrirEssencias, id = self.menuEssencias.GetId() )
 		self.Bind( wx.EVT_MENU, self.abrirFixacoes, id = self.menuFixacoes.GetId() )
-		self.Bind( wx.EVT_MENU, self.abrirVolumes, id = self.menuVolume.GetId() )
+		self.Bind( wx.EVT_MENU, self.abrirVolume, id = self.menuVolume.GetId() )
 		self.Bind( wx.EVT_MENU, self.abrirPerfumes, id = self.menuPerfumes.GetId() )
 		self.Bind( wx.EVT_MENU, self.abrirPerfumesEssencia, id = self.menuPerfumesEssencia.GetId() )
 		self.Bind( wx.EVT_MENU, self.abrirSobre, id = self.menuSobre.GetId() )
-		self.Bind( wx.EVT_MENU, self.abrirSair, id = self.menuSair.GetId() )
+		self.Bind( wx.EVT_MENU, self.sair, id = self.menuSair.GetId() )
 
 	def __del__( self ):
 		pass
@@ -85,7 +85,7 @@ class FramePrincipal ( wx.Frame ):
 	def abrirFixacoes( self, event ):
 		event.Skip()
 
-	def abrirVolumes( self, event ):
+	def abrirVolume( self, event ):
 		event.Skip()
 
 	def abrirPerfumes( self, event ):
@@ -97,7 +97,7 @@ class FramePrincipal ( wx.Frame ):
 	def abrirSobre( self, event ):
 		event.Skip()
 
-	def abrirSair( self, event ):
+	def sair( self, event ):
 		event.Skip()
 
 
@@ -218,7 +218,7 @@ class FrameFixacoes ( wx.Frame ):
 		bSizer8.Add( self.btnAdicionar, 0, wx.ALL, 5 )
 
 
-		bSizer7.Add( bSizer8, 0, wx.EXPAND, 5 )
+		bSizer7.Add( bSizer8, 1, wx.EXPAND, 5 )
 
 		bSizer10 = wx.BoxSizer( wx.VERTICAL )
 
@@ -308,35 +308,35 @@ class FrameVolumes ( wx.Frame ):
 
 		bSizer6 = wx.BoxSizer( wx.VERTICAL )
 
-		self.gridVolume = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.gridVolumes = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.gridVolume.CreateGrid( 0, 2 )
-		self.gridVolume.EnableEditing( True )
-		self.gridVolume.EnableGridLines( True )
-		self.gridVolume.EnableDragGridSize( False )
-		self.gridVolume.SetMargins( 0, 0 )
+		self.gridVolumes.CreateGrid( 0, 2 )
+		self.gridVolumes.EnableEditing( True )
+		self.gridVolumes.EnableGridLines( True )
+		self.gridVolumes.EnableDragGridSize( False )
+		self.gridVolumes.SetMargins( 0, 0 )
 
 		# Columns
-		self.gridVolume.SetColSize( 0, 30 )
-		self.gridVolume.SetColSize( 1, 300 )
-		self.gridVolume.EnableDragColMove( False )
-		self.gridVolume.EnableDragColSize( True )
-		self.gridVolume.SetColLabelSize( 30 )
-		self.gridVolume.SetColLabelValue( 0, u"ID" )
-		self.gridVolume.SetColLabelValue( 1, u"Nome" )
-		self.gridVolume.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.gridVolumes.SetColSize( 0, 30 )
+		self.gridVolumes.SetColSize( 1, 300 )
+		self.gridVolumes.EnableDragColMove( False )
+		self.gridVolumes.EnableDragColSize( True )
+		self.gridVolumes.SetColLabelSize( 30 )
+		self.gridVolumes.SetColLabelValue( 0, u"ID" )
+		self.gridVolumes.SetColLabelValue( 1, u"Nome" )
+		self.gridVolumes.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Rows
-		self.gridVolume.EnableDragRowSize( True )
-		self.gridVolume.SetRowLabelSize( 80 )
-		self.gridVolume.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.gridVolumes.EnableDragRowSize( True )
+		self.gridVolumes.SetRowLabelSize( 80 )
+		self.gridVolumes.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Label Appearance
 
 		# Cell Defaults
-		self.gridVolume.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-		bSizer6.Add( self.gridVolume, 0, wx.ALL, 5 )
+		self.gridVolumes.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		bSizer6.Add( self.gridVolumes, 0, wx.ALL, 5 )
 
 
 		bSizer1.Add( bSizer6, 1, wx.EXPAND, 5 )
@@ -349,7 +349,7 @@ class FrameVolumes ( wx.Frame ):
 
 		# Connect Events
 		self.btnAdicionar.Bind( wx.EVT_BUTTON, self.adicionarVolume )
-		self.gridVolume.Bind( wx.grid.EVT_GRID_CELL_CHANGED, self.atualizarMarca )
+		self.gridVolumes.Bind( wx.grid.EVT_GRID_CELL_CHANGED, self.atualizarMarca )
 
 	def __del__( self ):
 		pass
@@ -538,5 +538,3 @@ class FramePerfumesGrid ( wx.Frame ):
 
 	def salvarPerfume( self, event ):
 		event.Skip()
-
-
