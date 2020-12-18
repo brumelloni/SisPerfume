@@ -35,7 +35,7 @@ class FramePerfumes(guiperfumes.FramePerfumesGrid):
 		for perfume in perfumes: #Para cada perfume da minha lista, crie uma nova linha, passando os dados retornados
 			self.criarLinha(id_perfume=perfume[0],nome_perfume=perfume[1],quantidade=perfume[2],volume=perfume[3],marca=perfume[4],fixacao=perfume[5])
 	def exibirFrame( self, event ):
-		self.exibirTabela() #Ao abrir a janela, exiba a lista de perfumes
+		self.exibirTabela() #Ao abrir a janela, exibe a lista de perfumes
 	'''
 	Esse método insere uma nova linha no grid. Caso o parâmetro id_perfume seja None, ele insere uma linha em branco
 	'''

@@ -12,7 +12,7 @@ class FrameMarca(guiperfumes.FrameMarcas):
 # Handlers for FrameMarca events.
 	def adicionarMarca( self, event ):
 		nome=self.txtNome.GetValue() #Recupera o conteúdo da caixa de texto
-		AcessandoBD.inserirMarca(nome) #Chama a função inserir marca do arquivo db.py
+		AcessandoBD.inserirMarca(nome) #Chama a função inserir marca do arquivo AcessandoBD.py
 		#Exibe uma mensagem ao usuário confirmado o sucesso na inserção
 		wx.MessageBox(message="Marca Inserida com Sucesso",caption="SisPerfumes",style=wx.OK,parent=self)
 		self.atualizarGrid()#Atualiza o grid com a relação de marcas

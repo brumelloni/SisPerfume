@@ -1,6 +1,5 @@
 import sqlite3
 path=r'C:\Users\bruna\PycharmProjects\SisPerfume\dbperfumes-v2.db'
-#O nome do banco criado foi dbperfumes-v2.db. Se você criar com outro nome, troque aqui
 banco=sqlite3.connect(path+r'dbperfumes-v2.db')
 '''
 Essa função insere um marca no banco de dados, recebendo como parâmetro o nome da marca
