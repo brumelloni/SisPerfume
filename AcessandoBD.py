@@ -1,12 +1,13 @@
 import sqlite3
-path=r'C:\sqlite\databases'
+path=r'C:\Users\bruna\PycharmProjects\SisPerfume\dbperfumes-v2.db'
 #O nome do banco criado foi dbperfumes-v2.db. Se você criar com outro nome, troque aqui
-banco=sqlite3.connect(path+r'\dbperfumes-v2.db')
+banco=sqlite3.connect(path+r'dbperfumes-v2.db')
 '''
 Essa função insere um marca no banco de dados, recebendo como parâmetro o nome da marca
 '''
 def inserirMarca(nome_marca):
-    sql="insert into Marcas (nome) values('{0}')".format(nome_marca)
+
+    sql="INSERT INTO marcas (nome) VALUES('{0}')".format(nome_marca)
     cursor=banco.cursor()
     cursor.execute(sql)
     banco.commit()
@@ -16,7 +17,7 @@ Essa função atualiza uma marca no banco de dados, recebendo como parâmetros
 o id e o nome. O id é necessário para ser usado na instrução update
 '''
 def atualizarMarca(id,nome):
-    sql="update Marcas set nome='{0}' where id={1}".format(nome,id)
+    sql="update marcas set nome='{0}' where id={1}".format(nome,id)
     cursor=banco.cursor()
     cursor.execute(sql)
     banco.commit()
@@ -93,6 +94,20 @@ def localizarVolumePorNome(nome):
     volume=cursor.fetchone()
     cursor.close()
     return volume
+def inserirFixacao(nome_fixacao):
+    sql="INSERT INTO Fixacoes (nome) VALUES('{0}')".format(nome_fixacao)
+    cursor=banco.cursor()
+    cursor.execute(sql)
+    banco.commit()
+    cursor.close()
+
+def atualizarFixacao(id_fixacao,nome_fixacao):
+    sql="update Fixacoes set nome='{0}' where id={1}".format(nome_fixacao,id_fixacao)
+    cursor=banco.cursor()
+    cursor.execute(sql)
+    banco.commit()
+    cursor.close()
+
 def listarFixacao():
     sql="select * from Fixacoes"
     cursor=banco.cursor()
@@ -118,7 +133,26 @@ def listarFixacaoNome():
     for fixacao in nome_fixacoes:
         fixacoes.append(fixacao[0])
     return fixacoes
-
+def inserirEssencia( nome_essencia ):
+    sql="sql=insert into Essencias (nome) values('{0}')".format(nome_essencia)
+    cursor=banco.cursor()
+    cursor.execute(sql)
+    banco.commit()
+    cursor.close()
+def atualizarEssencia(id,nome):
+    sql="update Essencias set nome='{0}' where id={1}".format(nome,id)
+    cursor=banco.cursor()
+    cursor.execute(sql)
+    banco.commit()
+    cursor.close()
+def listarEssencias():
+    sql="select * from Essencias"
+    cursor=banco.cursor()
+    cursor.execute(sql)
+    essencias =cursor.fetchall()
+    cursor.close()
+    print(len(essencias))
+    return essencias
 '''
 Essa função lista todos os perfumes, trazendo as informações completas e relacionadas com as outras tabelas,
 de forma que a lista final tem os segintes campos: id do Perfume, nome do perfume, quantidade do perfume,
